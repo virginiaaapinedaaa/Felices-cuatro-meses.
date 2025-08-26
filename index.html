@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Felices 4 meses 💖</title>
+  <style>
+    :root{
+      --bg:#0f0a1f;/* azul noche */
+      --pink:#ff4d8d;
+      --rose:#ff92c2;
+      --gold:#ffd166;
+      --white:#fff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 70% 10%, #1b1236 0%, var(--bg) 55%, #070511 100%);
+      color:var(--white);
+      overflow:hidden;
+    }
+    /* Contenedor principal */
+    .wrap{position:relative; height:100%; display:grid; place-items:center; padding:24px}
+
+    /* Tarjeta */
+    .card{
+      width:min(820px, 92vw);
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:28px;
+      padding:28px 28px 22px;
+      backdrop-filter: blur(10px);
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+    }
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; background:rgba(255,77,141,.14); border:1px solid rgba(255,77,141,.5); font-weight:600; letter-spacing:.3px}
+    .badge .dot{width:8px; height:8px; border-radius:999px; background:var(--pink); box-shadow:0 0 12px var(--rose)}
+
+    h1{
+      font-size:clamp(26px, 4vw, 44px);
+      margin:14px 0 6px; line-height:1.1;
+      background:linear-gradient(90deg, var(--rose), var(--white));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    p.lead{font-size:clamp(14px, 2.2vw, 18px); opacity:.9; margin:8px 0 18px}
+
+    .names{font-weight:700; color:var(--gold)}
+
+    /* Botones */
+    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px}
+    .btn{
+      appearance:none; border:none; cursor:pointer; font-weight:700; letter-spacing:.3px;
+      padding:12px 16px; border-radius:14px; transition:.2s transform, .2s filter, .2s box-shadow;
+    }
+    .btn-primary{background:linear-gradient(135deg, var(--pink), var(--rose)); color:#1a0b1a; box-shadow:0 10px 30px rgba(255,77,141,.35)}
+    .btn-ghost{background:rgba(255,255,255,.08); color:var(--white); border:1px solid rgba(255,255,255,.14)}
+    .btn:hover{transform:translateY(-2px)}
+
+    /* Mensaje oculto */
+    .hidden{display:none}
+    .note{margin-top:14px; padding:14px; border-radius:14px; background:rgba(255,255,255,.06); border:1px dashed rgba(255,255,255,.18)}
+
+    /* Footer */
+    .foot{margin-top:16px; font-size:13px; opacity:.8}
+
+    /* Corazones flotando */
+    .hearts{position:absolute; inset:0; pointer-events:none; overflow:hidden}
+    .heart{position:absolute; width:18px; height:18px; transform:translate(-50%, -50%) rotate(45deg); animation:float var(--dur) linear forwards; opacity:.9}
+    .heart::before,.heart::after{content:""; position:absolute; width:100%; height:100%; background:currentColor; border-radius:50%}
+    .heart::before{top:-50%}
+    .heart::after{left:-50%}
+
+    @keyframes float{ to{ transform:translate(var(--tx, 0), -110vh) rotate(45deg); opacity:0 } }
+
+    /* Confeti sutil */
+    .spark{position:absolute; width:6px; height:6px; background:var(--gold); border-radius:2px; filter:drop-shadow(0 0 6px rgba(255,209,102,.8)); animation:spark var(--sDur) ease-out forwards}
+    @keyframes spark{ to{ transform:translateY(-100vh) rotate(360deg); opacity:0 } }
+
+    /* Tip */
+    .tip{position:fixed; bottom:14px; right:14px; font-size:12px; opacity:.7}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <span class="badge"><span class="dot"></span> Felices 4 meses</span>
+      <h1>Para <span class="names">Gerardo</span> 💖 De <span class="names">Chimpi</span></h1>
+      <p class="lead">Gracias a Dios, a la Virgencita y a la vida por regalarnos este amor. Aunque estemos a distancia, nuestro corazón late al mismo ritmo. Te amo hoy y todos los días. </p>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="btnShow">💌 Mostrar mensaje</button>
+        <button class="btn btn-ghost" id="btnHearts">💖 Lluvia de corazones</button>
+        <button class="btn btn-ghost" id="btnConfetti">✨ Chispa de amor</button>
+      </div>
+
+      <div id="note" class="note hidden">
+        <strong>Mi mensaje para ti:</strong>
+        <p>
+          Felices cuatro meses, mi amor. Aún guardo nuestro primer beso, te amo demasiado y eres lo mejor para mi primero Dios 
+          Contigo si se me de tener un futuro contigo porque realmente lo siento en mi corazón.
+          extraño las tardes de lluvia y ver mi youtuber Favorito Genuine, y lo mucho que nos divertia o cuando me mirabas jugar lol
+          Y te quejabas demasiado. Ahora nuestras llamadas que acortan distancias, hacen que nos sintamos mas juntos y unidos.
+          Me conservo para ti, con fidelidad y exclusividad. Eres mi prioridad, cerca o lejos.
+          Lo decreto: serás algo más que mi novio. Te amo con el alma. — <em>Chimpi</em>
+        </p>
+      </div>
+      
+      <div class="foot">Tip: presiona la tecla <b>H</b> para corazones y <b>C</b> para chispas ✨</div>
+    </div>
+
+    <div class="hearts" id="layer"></div>
+  </div>
+
+  <div class="tip">Hecho con ♥️ en código — Felices 4 meses</div>
+
+  <script>
+    const layer = document.getElementById('layer');
+    const note = document.getElementById('note');
+    const btnShow = document.getElementById('btnShow');
+    const btnHearts = document.getElementById('btnHearts');
+    const btnConfetti = document.getElementById('btnConfetti');
+
+    // Alternar mensaje
+    btnShow.addEventListener('click', ()=>{
+      note.classList.toggle('hidden');
+      burstHearts(24);
+      burstConfetti(40);
+    });
+
+    btnHearts.addEventListener('click', ()=> burstHearts(30));
+    btnConfetti.addEventListener('click', ()=> burstConfetti(60));
+
+    // Atajos de teclado
+    window.addEventListener('keydown', (e)=>{
+      if(e.key.toLowerCase()==='h') burstHearts(24);
+      if(e.key.toLowerCase()==='c') burstConfetti(50);
+    });
+
+    function burstHearts(n=20){
+      for(let i=0;i<n;i++){
+        const el=document.createElement('div');
+        el.className='heart';
+        const x=Math.random()*100; // vw
+        const size=12+Math.random()*18;
+        el.style.left=x+'vw';
+        el.style.bottom='-10vh';
+        el.style.width=size+'px';
+        el.style.height=size+'px';
+        el.style.color = Math.random()>.5? getComputedStyle(document.documentElement).getPropertyValue('--rose') : getComputedStyle(document.documentElement).getPropertyValue('--pink');
+        el.style.setProperty('--dur', (6+Math.random()*6)+'s');
+        el.style.setProperty('--tx', (Math.random()*40-20)+'vw');
+        layer.appendChild(el);
+        setTimeout(()=> el.remove(), 12000);
+      }
+    }
+
+    function burstConfetti(n=30){
+      for(let i=0;i<n;i++){
+        const sp=document.createElement('div');
+        sp.className='spark';
+        sp.style.left=(Math.random()*100)+'vw';
+        sp.style.bottom='-8vh';
+        sp.style.transform=`translateY(0) rotate(${Math.random()*180}deg)`;
+        sp.style.setProperty('--sDur', (3+Math.random()*2)+'s');
+        sp.style.background = i%3? 'var(--gold)' : 'white';
+        document.body.appendChild(sp);
+        setTimeout(()=> sp.remove(), 6000);
+      }
+    }
+
+    // Detalle inicial
+    setTimeout(()=>{ burstHearts(20); burstConfetti(20); }, 600);
+  </script>
+</body>
+</html>
